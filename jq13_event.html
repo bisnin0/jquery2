@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.c1{color:pink;font-size:2em;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	// onclick, onload, onmouseover, onmouseout, onmouseenter, onmouseleave, onmousemove
+	// onkeyup, onkeydown, onkeypress, onkeyrelease, onfocus, onblur, onsubmit, onscroll, onresize
+	// onchange, ondblclick,  hover
+	$(function(){
+		//=== 이벤트 처리 방법 1
+		//  h1태그를 클릭이벤트 처리		
+		$("h1").click(function(){
+			//이벤트가 발생하면 실행됨...
+			// this : 현재 클릭이벤트가 발생한 객체
+			$(this).css("background-color","yellow");		
+			console.log($(this).html(), $(this).text());
+		    
+			$(this).html($(this).text()+"★");
+			
+			//h1의 이벤트가 발생한 객체의 index를 알아낸다.
+			console.log( $("h1").index(this) );			
+			$("#result").append("이벤트가 발생되었습니다..<br/>");
+		});
+		//===  이벤트 처리 방법 2
+		//      이벤트종류         이벤트가 발생하면 실행할 함수
+		$("h2").on('click', function(){
+			//$(this).css("color","lightblue");
+			$(this).toggleClass('c1');
+		});
+		//=== 이벤트 처리 방법 3
+		//  onmouseenter, onmouseleave한번에 정의하기
+		$("h1").on({mouseenter:function(){
+			$(this).css("background-color","orange");
+		},mouseleave:function(){
+			$(this).css("background-color","cyan");
+		}});
+		
+		//=== 이벤트 처리 방법 4
+		// 하나의 객체에 다른 종류에 이벤트가 여러개 발생할때
+		$("input").on('click focus', function(){
+			$(this).val("이벤트가 발생하였습니다..");
+		});
+	});
+</script>
+</head>
+<body>
+<h1>제이쿼리 이벤트처리1</h1>
+<h1>제이쿼리 이벤트처리2</h1>
+<h1>제이쿼리 이벤트처리3</h1>
+<h1>제이쿼리 이벤트처리4</h1>
+<h2>제이쿼리 이벤트처리</h2>
+<h2>제이쿼리 이벤트처리</h2>
+<h2>제이쿼리 이벤트처리</h2>
+<h2>제이쿼리 이벤트처리</h2>
+<input type="button" value="123456"/>
+<input type="button" value="abcdef"/>
+<input type="button" value="가나나라"/>
+<div id="result"></div>
+</body>
+</html>

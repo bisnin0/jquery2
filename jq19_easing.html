@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--
+	http://jqueryui.com/easing/
+	
+	http://jqueryui.com/download/all/에서 다운로드 한다.
+	
+	1. jquery-ui.min.css
+	2. jquery-3.5.1.min.js
+	3. jquery-ui.min.js
+-->
+<link rel="stylesheet" href="jquery-ui.min.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<style>
+	img{width:100px;height:100px;position:absolute;}
+</style>
+<script>
+	$(function(){
+		//                                                               easing:움직이는 모양
+		$("#i1").animate({marginLeft:"1000px", marginTop:"600px"}, 5000, "easeOutBounce");
+	});
+</script>
+</head>
+<body>
+<img src="../img/book.jfif" id="i1"/>
+</body>
+</html>
+
+
+
+
+
